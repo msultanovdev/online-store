@@ -42,7 +42,7 @@ const Device = sequelize.define('device', {
         type: DataTypes.INTEGER, defaultValue: 0
     },
     img: {
-        type: DataTypes.INTEGER, allowNull: false
+        type: DataTypes.STRING, allowNull: false
     },
 });
 
