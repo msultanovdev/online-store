@@ -11,8 +11,8 @@ export default class DeviceStore {
             {id: 2, name: "Samsung"}
         ]
         this._devices = [
-            {id: 1, name: "Iphone 12"},
-            {id: 2, name: "Iphone 13"},
+            {id: 1, name: "Iphone 12", img: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.router-switch.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2Fb90fceee6a5fa7acd36a04c7b968181c%2Fi%2Fp%2Fiphone-12-pro.jpg&imgrefurl=https%3A%2F%2Fwww.router-switch.com%2Fiphone-12-pro.html&tbnid=6Ei6i5L0q_VqwM&vet=12ahUKEwjul9yE36j4AhUj_SoKHQsIBm8QMygEegUIARDHAQ..i&docid=rYfxvUZ3jVCWHM&w=600&h=600&q=iphone%2012%20pro&ved=2ahUKEwjul9yE36j4AhUj_SoKHQsIBm8QMygEegUIARDHAQ', rating: 5},
+            {id: 2, name: "Iphone 13", img: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.router-switch.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2Fb90fceee6a5fa7acd36a04c7b968181c%2Fi%2Fp%2Fiphone-12-pro.jpg&imgrefurl=https%3A%2F%2Fwww.router-switch.com%2Fiphone-12-pro.html&tbnid=6Ei6i5L0q_VqwM&vet=12ahUKEwjul9yE36j4AhUj_SoKHQsIBm8QMygEegUIARDHAQ..i&docid=rYfxvUZ3jVCWHM&w=600&h=600&q=iphone%2012%20pro&ved=2ahUKEwjul9yE36j4AhUj_SoKHQsIBm8QMygEegUIARDHAQ', rating: 5},
         ]
         this._selectedType = {};
         this._selectedBrand = {};
