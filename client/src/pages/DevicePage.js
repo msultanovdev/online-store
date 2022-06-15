@@ -1,23 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
 import { Context } from '../index';
+import { useParams } from 'react-router-dom';
 
 import bigStart from '../assets/star.png';
+import { fetchOneDevice } from '../http/deviceApi';
 
 const DevicePage = () => {
-  const {device} = useContext(Context);
-  const description = [
-    {
-      title: 'Iphone',
-      description: 'The best'
-    }
-  ]
+  const [device, setDevice] = useState({info: []});
+  const {id} = useParams();
+  useEffect(() => {
+    fetchOneDevice(id).then(data => setDevice(data))
+  }, []);
 
   return (
     <Container className='mt-3'>
       <Row>
         <Col md={4}>
-          <Image width={300} height={300} src={device.img} />
+          <Image width={300} height={300} src={'http://localhost:5000/' + device.img} />
         </Col>
         <Col md={4}>
           <Row className='d-flex flex-column align-items-center'>
@@ -41,7 +41,7 @@ const DevicePage = () => {
         </Col>
       </Row>
       <Row className='d-flex flex-column mt-3'>
-        {description.map(d =>
+        {device.info.map(d =>
           <Row style={{background: d.id % 2 === 0 && 'lightblue', padding: 10}} key={d.id}>
             {d.title}: {d.description}
           </Row>  

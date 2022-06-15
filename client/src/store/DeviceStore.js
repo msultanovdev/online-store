@@ -2,20 +2,14 @@ import { makeAutoObservable } from 'mobx';
 
 export default class DeviceStore {
     constructor() {
-        this._types = [
-            {id: 1, name: "Холодильники"},
-            {id: 2, name: "Смартфоны"},
-        ]
-        this._brands = [
-            {id: 1, name: "Apple"},
-            {id: 2, name: "Samsung"}
-        ]
-        this._devices = [
-            {id: 1, name: "Iphone 12", img: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.router-switch.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2Fb90fceee6a5fa7acd36a04c7b968181c%2Fi%2Fp%2Fiphone-12-pro.jpg&imgrefurl=https%3A%2F%2Fwww.router-switch.com%2Fiphone-12-pro.html&tbnid=6Ei6i5L0q_VqwM&vet=12ahUKEwjul9yE36j4AhUj_SoKHQsIBm8QMygEegUIARDHAQ..i&docid=rYfxvUZ3jVCWHM&w=600&h=600&q=iphone%2012%20pro&ved=2ahUKEwjul9yE36j4AhUj_SoKHQsIBm8QMygEegUIARDHAQ', rating: 5},
-            {id: 2, name: "Iphone 13", img: 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.router-switch.com%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2Fb90fceee6a5fa7acd36a04c7b968181c%2Fi%2Fp%2Fiphone-12-pro.jpg&imgrefurl=https%3A%2F%2Fwww.router-switch.com%2Fiphone-12-pro.html&tbnid=6Ei6i5L0q_VqwM&vet=12ahUKEwjul9yE36j4AhUj_SoKHQsIBm8QMygEegUIARDHAQ..i&docid=rYfxvUZ3jVCWHM&w=600&h=600&q=iphone%2012%20pro&ved=2ahUKEwjul9yE36j4AhUj_SoKHQsIBm8QMygEegUIARDHAQ', rating: 5},
-        ]
+        this._types = []
+        this._brands = []
+        this._devices = []
         this._selectedType = {};
         this._selectedBrand = {};
+        this._page = 1;
+        this._totalCount = 0;
+        this._limit = 3;
         makeAutoObservable(this);
     }
 
@@ -29,10 +23,18 @@ export default class DeviceStore {
         this._devices = devices;
     }
     setSelectedType(type) {
+        this.setPage(1);
         this._selectedType = type;
     }
     setSelectedBrand(brand) {
+        this.setPage(1);
         this._selectedBrand = brand;
+    }
+    setPage(page) {
+        this._page = page
+    }
+    setTotalCount(count) {
+        this._totalCount = count
     }
 
 
@@ -51,5 +53,13 @@ export default class DeviceStore {
     get selectedBrand() {
         return this._selectedBrand;
     }
-    
+    get totalCount() {
+        return this._totalCount;
+    }
+    get page() {
+        return this._page;
+    }
+    get limit() {
+        return this._limit;
+    }
 }
